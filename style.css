@@ -18,8 +18,8 @@ body {
 }
 
 .main-title {
-    position: relative; /* Essencial para posicionar os filhos */
-    height: 100vh; /* Ocupa a altura total da tela */
+    position: relative;
+    height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -33,11 +33,10 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    object-fit: cover; /* A imagem cobre todo o espaço sem distorcer */
-    z-index: 1; /* Fica abaixo do conteúdo */
+    object-fit: cover;
+    z-index: 1;
 }
 
-/* Adicionando um fundo preto com transparência para melhorar a legibilidade do texto */
 .main-title::before {
     content: '';
     position: absolute;
@@ -45,13 +44,13 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.5); /* Cor preta com 50% de transparência */
-    z-index: 2; /* Fica acima da imagem, mas abaixo do texto */
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 2;
 }
 
 .header-content {
     position: relative;
-    z-index: 3; /* Fica acima do overlay */
+    z-index: 3;
     padding: 20px;
     text-align: center;
 }
@@ -61,9 +60,10 @@ body {
     font-size: 3.5rem;
     color: var(--color-gold);
     margin: 0;
+    /* Contorno vermelho, a luz branca será adicionada pela animação */
     text-shadow: 2px 2px 0 var(--color-red);
     letter-spacing: 4px;
-    animation: glow-pulse 2s infinite alternate;
+    animation: glow-pulse 1.5s infinite alternate;
 }
 
 .main-title h2 {
@@ -161,13 +161,13 @@ body {
 
 @keyframes glow-pulse {
     0% {
-        text-shadow: 2px 2px 0 var(--color-red), 0 0 0 rgba(255, 255, 255, 0);
+        text-shadow: 2px 2px 0 var(--color-red), 0 0 0 rgba(255, 255, 255, 0); /* Contorno vermelho, sem brilho branco */
     }
     50% {
-        text-shadow: 2px 2px 0 var(--color-red), 0 0 15px var(--color-red);
+        text-shadow: 2px 2px 0 var(--color-red), 0 0 30px var(--color-white); /* Contorno vermelho com brilho branco intenso */
     }
     100% {
-        text-shadow: 2px 2px 0 var(--color-red), 0 0 0 rgba(255, 255, 255, 0);
+        text-shadow: 2px 2px 0 var(--color-red), 0 0 0 rgba(255, 255, 255, 0); /* Contorno vermelho, sem brilho branco */
     }
 }
 
