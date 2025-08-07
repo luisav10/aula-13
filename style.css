@@ -1,0 +1,183 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Poppins:wght@400;600;700&display=swap');
+
+:root {
+    --color-gold: #E4BF55;
+    --color-red: #C60209;
+    --color-white: #FFFFFF;
+    --color-dark-gray: #2c2c2c;
+    --color-light-gray: #f0f0f0;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--color-dark-gray);
+    color: var(--color-light-gray);
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+.main-title {
+    position: relative; /* Essencial para posicionar os filhos */
+    height: 100vh; /* Ocupa a altura total da tela */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    margin: 0;
+}
+
+.header-img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* A imagem cobre todo o espaço sem distorcer */
+    z-index: 1; /* Fica abaixo do conteúdo */
+}
+
+/* Adicionando um fundo preto com transparência para melhorar a legibilidade do texto */
+.main-title::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Cor preta com 50% de transparência */
+    z-index: 2; /* Fica acima da imagem, mas abaixo do texto */
+}
+
+.header-content {
+    position: relative;
+    z-index: 3; /* Fica acima do overlay */
+    padding: 20px;
+    text-align: center;
+}
+
+.main-title h1 {
+    font-family: 'Anton', sans-serif;
+    font-size: 3.5rem;
+    color: var(--color-gold);
+    margin: 0;
+    text-shadow: 2px 2px 0 var(--color-red);
+    letter-spacing: 4px;
+    animation: glow-pulse 2s infinite alternate;
+}
+
+.main-title h2 {
+    font-size: 1.2rem;
+    font-weight: 400;
+    color: var(--color-light-gray);
+    margin-top: 10px;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.team-section {
+    background: var(--color-dark-gray);
+    border-radius: 10px;
+    padding: 30px;
+    margin: 20px 0;
+    width: 100%;
+    max-width: 900px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.team-title {
+    width: 100%;
+    font-size: 2rem;
+    font-weight: 600;
+    margin-bottom: 25px;
+    padding-bottom: 10px;
+    color: var(--color-white);
+    border-bottom: 2px solid var(--color-gold);
+    letter-spacing: 1px;
+}
+
+.character-card {
+    background: var(--color-dark-gray);
+    border-radius: 8px;
+    margin: 15px;
+    padding: 15px;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    width: 250px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.character-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.6);
+}
+
+.character-card h3 {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--color-gold);
+    margin-top: 15px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.character-card img {
+    width: 100%;
+    max-width: 200px;
+    height: auto;
+    border-radius: 50%;
+    border: 3px solid var(--color-gold);
+    transition: border-color 0.3s ease;
+}
+
+.character-card:hover img {
+    border-color: var(--color-red);
+}
+
+#goku:hover img {
+    box-shadow: 0 0 15px 5px var(--color-red);
+}
+
+#freeza:hover img {
+    box-shadow: 0 0 15px 5px var(--color-red);
+}
+
+#kuririn:hover img {
+    box-shadow: 0 0 15px 5px var(--color-red);
+}
+
+@keyframes glow-pulse {
+    0% {
+        text-shadow: 2px 2px 0 var(--color-red), 0 0 0 rgba(255, 255, 255, 0);
+    }
+    50% {
+        text-shadow: 2px 2px 0 var(--color-red), 0 0 15px var(--color-red);
+    }
+    100% {
+        text-shadow: 2px 2px 0 var(--color-red), 0 0 0 rgba(255, 255, 255, 0);
+    }
+}
+
+@media (max-width: 768px) {
+    .main-title h1 {
+        font-size: 2.5rem;
+    }
+
+    .character-card {
+        width: 100%;
+        max-width: 300px;
+    }
+}
